@@ -59048,3 +59048,139 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1545200407.6389
     'REQUEST_TIME' => 1545200407
 ]
+2018-12-19 12:08:35 [61.56.180.167][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 61.56.180.167
+    in /usr/share/nginx/html/newsapp/frontend/views/layouts/main.php:79
+    in /usr/share/nginx/html/newsapp/frontend/controllers/SiteController.php:77
+2018-12-19 12:08:35 [61.56.180.167][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 61.56.180.167
+2018-12-19 12:08:35 [61.56.180.167][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'nginx'
+    'HOME' => '/var/lib/nginx'
+    'SCRIPT_FILENAME' => '/usr/share/nginx/html/newsapp/frontend/web/index.php'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '119.81.192.172'
+    'REMOTE_PORT' => '50530'
+    'REMOTE_ADDR' => '61.56.180.167'
+    'SERVER_SOFTWARE' => 'nginx/1.12.2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'DOCUMENT_ROOT' => '/usr/share/nginx/html/newsapp/frontend/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1545201515.9118
+    'REQUEST_TIME' => 1545201515
+]
+2018-12-19 12:23:01 [60.191.38.77][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 60.191.38.77
+    in /usr/share/nginx/html/newsapp/frontend/views/layouts/main.php:79
+    in /usr/share/nginx/html/newsapp/frontend/controllers/SiteController.php:77
+2018-12-19 12:23:01 [60.191.38.77][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 60.191.38.77
+2018-12-19 12:23:01 [60.191.38.77][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'nginx'
+    'HOME' => '/var/lib/nginx'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_HOST' => '119.81.192.172:80'
+    'SCRIPT_FILENAME' => '/usr/share/nginx/html/newsapp/frontend/web/index.php'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '119.81.192.172'
+    'REMOTE_PORT' => '53900'
+    'REMOTE_ADDR' => '60.191.38.77'
+    'SERVER_SOFTWARE' => 'nginx/1.12.2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/usr/share/nginx/html/newsapp/frontend/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1545202381.1264
+    'REQUEST_TIME' => 1545202381
+]
+2018-12-19 12:34:12 [138.186.148.158][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 138.186.148.158
+    in /usr/share/nginx/html/newsapp/frontend/views/layouts/main.php:79
+    in /usr/share/nginx/html/newsapp/frontend/controllers/SiteController.php:77
+2018-12-19 12:34:12 [138.186.148.158][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 138.186.148.158
+2018-12-19 12:34:12 [138.186.148.158][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'nginx'
+    'HOME' => '/var/lib/nginx'
+    'HTTP_CONTENT_LENGTH' => '0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'
+    'HTTP_HOST' => '119.81.192.172:80'
+    'SCRIPT_FILENAME' => '/usr/share/nginx/html/newsapp/frontend/web/index.php'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '119.81.192.172'
+    'REMOTE_PORT' => '52084'
+    'REMOTE_ADDR' => '138.186.148.158'
+    'SERVER_SOFTWARE' => 'nginx/1.12.2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/usr/share/nginx/html/newsapp/frontend/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => '0'
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1545203052.2895
+    'REQUEST_TIME' => 1545203052
+]
