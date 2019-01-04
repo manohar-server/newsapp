@@ -32,11 +32,12 @@ class News extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title'], 'required'],
-            [['title', 'description', 'video_url', 'thumbnail_url'], 'string'],
+            [['title', 'video'], 'required'],
+	    ['title', 'string', 'length' => [4, 150]],
+            [['description', 'video_url', 'thumbnail_url'], 'string'],
             [['published_at'], 'safe'],
             [['published_by'], 'integer'],
-	        [['video'], 'file'],
+	    [['video'], 'file'],
             [['thumbnail'], 'file'],
         ];
     }

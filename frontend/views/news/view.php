@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'attribute'=>'video_url',
                 'value' => function($data) { return '<video width="150" height="100" autoplay controls>
-                              <source src="http://119.81.192.172:3000/video/' .$data->video_url .'" type="video/mp4">
+                              <source src="http://solapur24x7.com/video/' .$data->video_url .'" type="video/mp4">
                             </video>' ; },
             ],
             

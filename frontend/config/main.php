@@ -10,7 +10,7 @@ return [
     'id' => 'app-frontend',
     'name' => 'News Admin',
     //'homeUrl' => 'site/login',
-   // 'defaultRoute' => 'news'
+    'defaultRoute' => 'news/index',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -41,12 +41,12 @@ return [
             'errorAction' => 'site/error',
         ],
         
-        'urlManager' => [
+        /*'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
-        ],
+        ],*/
         
     ],
     'params' => $params,

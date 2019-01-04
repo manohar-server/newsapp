@@ -47,6 +47,13 @@ class NewsSearch extends News
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+	    'sort' => [
+        	'defaultOrder' => [
+	        	'published_at' => SORT_DESC,
+	            	'id' => SORT_DESC, 
+        	]
+    	    ],
+	    //'sort'=> ['defaultOrder' => ['id' => SORT_DSC]]
         ]);
 
         $this->load($params);
@@ -60,9 +67,9 @@ class NewsSearch extends News
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'provider_id' => Yii::$app->user->id,
-            'published_at' => $this->published_at,
-            'published_by' => $this->published_by,
+            'provider_id' => Yii::$app->user->identity->id,
+            //'published_at' => $this->published_at,
+            //'published_by' => $this->published_by,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

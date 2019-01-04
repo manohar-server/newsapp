@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use frontend\model\NewsSearch;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -74,13 +75,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-	return $this->render('index');
-	/*if(Yii::$app->user->isGuest){
-		$model = new LoginForm();
-		return $this->render('login', ['model' => $model]);
-	} else{
-	       $this->redirect('news/index');
-	}*/
+//	return $this->render('index');
+	$searchModel = new NewsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('news/index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**

@@ -63,7 +63,7 @@ public function behaviors()
         $searchModel = new NewsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('/news/index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -112,15 +112,16 @@ public function behaviors()
             $model->video = UploadedFile::getInstance($model, 'video');
 
             if ($model->video && $model->validate()) {
-                $fileName = $model->video->baseName . '.' . $model->video->extension;
+		$randomString = $this->gfRandKey();
+                $fileName = $randomString . '.' . $model->video->extension;
                 $filePath = '/opt/streaming/uploads/videos/' . preg_replace('/\s+/', '',$fileName);
                 $model->video->saveAs($filePath);
                 $model->video_url = $fileName;
 
                 $sec = 1;
                 $movie = $filePath;
-                //$thumbnail = '/opt/streaming/uploads/thumbnails/'. $model->video->baseName .'.png';
-		$thumbnail = '/usr/share/nginx/html/newsapp/frontend/web/uploads/thumbnails/'.preg_replace('/\s+/', '', $model->video->baseName .'.png');
+                //$thumbnail = '/opt/streaming/uploads/thumbnails/'. $randomString .'.png';
+		$thumbnail = '/usr/share/nginx/html/newsapp/frontend/web/uploads/thumbnails/'.preg_replace('/\s+/', '', $randomString .'.png');
 
                 $ffmpeg = \FFMpeg\FFMpeg::create([
                     //'ffmpeg.binaries'  => exec('which ffmpeg'),
@@ -169,6 +170,25 @@ public function behaviors()
         ]);
     }
 
+    public function gfRandKey($minlength=12, $maxlength=12, $useupper=true, $usespecial=false, $usenumbers=true)
+
+{
+
+    $charset = "abcdefghijklmnopqrstuvwxyz";
+    $key = 'temp';
+
+    if ($useupper) $charset .= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    if ($usenumbers) $charset .= "0123456789";
+
+    if ($usespecial) $charset .= "~@#$%^*()_±={}|][";
+
+    for ($i=0; $i<$maxlength; $i++) $key .= $charset[(mt_rand(0,(strlen($charset)-1)))];
+
+    return $key;
+
+}
+
     /**
      * Deletes an existing News model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -182,5 +202,36 @@ public function behaviors()
 
         return $this->redirect(['index']);
     }
+
+	public function actionLogin()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        } else {
+            $model->password = '';
+
+            return $this->render('login', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Logout action.
+     *
+     * @return string
+     */
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
+    }
+
 
 }

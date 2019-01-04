@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
 	        'value' => function($data) { return Html::img($data->thumbnail_url, ['width'=>'100', 'height'=>'50']); },
             ],
             'title:ntext',
-            'description:ntext',
             array(
                 'attribute' => 'published_at',
                 'value'=>function($data) { return date("Y-m-d H:i:s", $data->published_at); },
