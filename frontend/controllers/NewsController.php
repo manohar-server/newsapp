@@ -7,7 +7,6 @@ use frontend\models\News;
 use frontend\models\NewsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
 /**
@@ -52,6 +51,11 @@ public function behaviors()
         ],
     ];
 }
+
+    public function actionTest(){
+        $string = Yii::$app->translate->translate('mr', 'en', 'सोलापूर महानगरपालिकेच्या विधान सल्लागार पदी राहुल कुलकर्णी');
+        $string['data']['translations'][0]['translatedText'];
+    }
 
     
     /**
@@ -117,10 +121,9 @@ public function behaviors()
                 $filePath = '/opt/streaming/uploads/videos/' . preg_replace('/\s+/', '',$fileName);
                 $model->video->saveAs($filePath);
                 $model->video_url = $fileName;
-
-                $sec = 1;
+		$model->post_url = $randomString;
+                $sec = 20;
                 $movie = $filePath;
-                //$thumbnail = '/opt/streaming/uploads/thumbnails/'. $randomString .'.png';
 		$thumbnail = '/usr/share/nginx/html/newsapp/frontend/web/uploads/thumbnails/'.preg_replace('/\s+/', '', $randomString .'.png');
 
                 $ffmpeg = \FFMpeg\FFMpeg::create([
@@ -131,6 +134,7 @@ public function behaviors()
                 ]);
 
                 $video = $ffmpeg->open($movie);
+		$video->filters()->resize(new \FFMpeg\Coordinate\Dimension(320, 240))->synchronize();
 
                 $frame = $video->frame(\FFMpeg\Coordinate\TimeCode::fromSeconds($sec));
                 $frame->save($thumbnail);
@@ -138,8 +142,15 @@ public function behaviors()
                 $model->thumbnail_url = '/uploads/thumbnails/' . substr($thumbnail, strrpos($thumbnail,"/") + 1);
             }
 
-            $model->published_at = round(microtime(true));
-	    $model->published_by = $model->provider_id = Yii::$app->user->identity->id;
+            $model->published_at = round(microtime(true) * 1000);
+	    #$model->published_by = $model->provider_id = Yii::$app->user->identity->id;
+	    $model->published_by = Yii::$app->user->identity->id == 2 ? 3 : (Yii::$app->user->identity->id == 3 ? 2 : Yii::$app->user->identity->id);
+            $model->provider_id = Yii::$app->user->identity->id == 2 ? 3 : (Yii::$app->user->identity->id == 3 ? 2 : Yii::$app->user->identity->id);
+	    try {
+              $string = Yii::$app->translate->translate('mr', 'en', $model->title);
+	      $model->en_title = $string['data']['translations'][0]['translatedText'];
+	    } catch(Exception $e) {
+	    }
             if($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }

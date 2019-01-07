@@ -39,6 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             
             'title:ntext',
             'description:ntext',
+	    'tags:ntext',
             array(
                 'attribute' => 'published_at',
                 'value'=>function($data) { return date("Y-m-d H:i:s", $data->published_at); },

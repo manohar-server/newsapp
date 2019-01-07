@@ -67,7 +67,8 @@ class NewsSearch extends News
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'provider_id' => Yii::$app->user->identity->id,
+	    'provider_id' => Yii::$app->user->identity->id == 2 ? 3 : (Yii::$app->user->identity->id == 3 ? 2 : Yii::$app->user->identity->id),
+            //'provider_id' => Yii::$app->user->identity->id,
             //'published_at' => $this->published_at,
             //'published_by' => $this->published_by,
         ]);

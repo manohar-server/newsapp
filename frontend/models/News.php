@@ -34,7 +34,7 @@ class News extends \yii\db\ActiveRecord
         return [
             [['title', 'video'], 'required'],
 	    ['title', 'string', 'length' => [4, 150]],
-            [['description', 'video_url', 'thumbnail_url'], 'string'],
+            [['description', 'tags', 'video_url', 'thumbnail_url'], 'string'],
             [['published_at'], 'safe'],
             [['published_by'], 'integer'],
 	    [['video'], 'file'],
@@ -57,6 +57,7 @@ class News extends \yii\db\ActiveRecord
             'thumbnail' => Yii::t('app', 'Thumbnail'),
             'video_url' => Yii::t('app', 'Video URL' ),
             'thumbnail_url' => Yii::t('app', 'Thumbnail'),
+	     'tags' => Yii::t('app', 'Tags'),
         ];
     }
 }
